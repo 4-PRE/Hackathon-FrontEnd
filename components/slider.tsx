@@ -13,7 +13,7 @@ const Container = styled.div`
   right: 0;
   text-align: center;
   width: 70%;
-  background-color: #30ACDB;
+  background-color: #3dc1f1;
   z-index: 1;
   border-radius: 12px;
 `;
@@ -39,6 +39,13 @@ const MenuContainer = styled.div`
 
 const MenuWrapper = styled.div`
   display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  padding-bottom: 0px;
+  padding-top:10px;
+  background-color:white;
+  margin-bottom: 5px;
   align-items: center;
   flex-direction: column;
 `;
@@ -50,6 +57,7 @@ const TTSWrapper = styled.div`
   align-items: center;
   justify-content: center;
   > div {
+    box-shadow: 5px 5px 5px lightgray;
     background-color: white;
     border-radius: 100px;
     padding: 50px;
