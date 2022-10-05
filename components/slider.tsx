@@ -106,7 +106,7 @@ const Slider: NextPage = () => {
     <Wrapper>
       <TTSWrapper>
         <div onClick={onClick}>
-          <Image src={Speaker} />
+          <Image src={Speaker} alt={""} />
           <p>음성안내로 시작하기</p>
         </div>
       </TTSWrapper>
