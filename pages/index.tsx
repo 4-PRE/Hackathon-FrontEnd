@@ -3,6 +3,7 @@ import Header from "../components/header";
 import * as S from "../styles/style";
 import Slider from "../components/slider";
 import Information from "../components/info";
+import Footer from "../components/footer";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
         <Slider />
         <Information />
       </S.Container>
+      <Footer />
     </>
   );
 };

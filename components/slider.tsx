@@ -39,12 +39,12 @@ const MenuContainer = styled.div`
 
 const MenuWrapper = styled.div`
   display: flex;
-  border: 1px solid black;
-  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
   padding: 5px;
   padding-bottom: 0px;
-  padding-top:10px;
-  background-color:white;
+  padding-top: 10px;
+  background-color: white;
   margin-bottom: 5px;
   align-items: center;
   flex-direction: column;
@@ -69,7 +69,12 @@ const TTSWrapper = styled.div`
     font-weight: bold;
     cursor: pointer;
     font-size: 50px;
+    transition: 0.3s;
     line-height: 20px;
+    :hover {
+      transition: 0.3s;
+      background-color: #e6e2e2;
+    }
     > p {
       margin-left: 50px;
     }
@@ -93,7 +98,8 @@ const Wrapper = styled.div`
 const Slider: NextPage = () => {
   const onClick = () => {
     const speechMsg = new SpeechSynthesisUtterance();
-    speechMsg.text = "가나다라";
+    speechMsg.text =
+      "안녕하십니까. 노인복지서비스 PRE 입니다. 음성 안내를 듣고 음성 안내 버튼 하단의 항목 중 원하시는 것을 선택하세요. 자신에게 적용되는 복지를 알아보고 싶으면 1번, 자신을 위한 일자리를 추천받고 싶으면 2번, 그 외에 다른 일자리를 찾아보고 싶으면 3번, 노인 취업 관련 통계 자료를 열람하려면 4번을 눌러주세요.";
     window.speechSynthesis.speak(speechMsg);
   };
   return (

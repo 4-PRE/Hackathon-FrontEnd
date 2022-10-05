@@ -1,10 +1,14 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import styled from "styled-components";
+import logo from "../public/img/logo.svg";
 
 const Header: NextPage = () => {
   return (
     <Wrapper>
-      <Logo />
+      <Logo>
+        <Image src={logo} />
+      </Logo>
       <TextsWrapper>
         <p>복지 알아보기</p>
         <p>일자리 찾기</p>
@@ -32,9 +36,7 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.div`
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
+  width: 100px;
   margin-left: 50px;
 `;
 
@@ -48,10 +50,10 @@ const TextsWrapper = styled.div`
   justify-content: space-between;
   > p {
     font-size: 20px;
-    font-weight:bold;
-    cursor:pointer;
-    background-color:white;
-    border-radius:5px;
-    padding:10px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
   }
 `;
