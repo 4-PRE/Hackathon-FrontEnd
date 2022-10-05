@@ -43,8 +43,8 @@ const MenuWrapper = styled.div`
   border-radius: 5px;
   padding: 5px;
   padding-bottom: 0px;
-  padding-top:10px;
-  background-color:white;
+  padding-top: 10px;
+  background-color: white;
   margin-bottom: 5px;
   align-items: center;
   flex-direction: column;
@@ -100,7 +100,7 @@ const Slider: NextPage = () => {
     <Wrapper>
       <TTSWrapper>
         <div onClick={onClick}>
-          <Image src={Speaker} />
+          <Image src={Speaker} alt={""} />
           <p>음성안내로 시작하기</p>
         </div>
       </TTSWrapper>
