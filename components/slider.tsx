@@ -2,6 +2,9 @@ import type { NextPage } from "next";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Speaker from "../public/img/speaker.png";
+import Pat1 from "../public/img/pattern1.svg";
+import Pat2 from "../public/img/pattern2.svg";
+import Emp from "../public/img/Emphasis.svg";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
@@ -71,6 +74,7 @@ const TTSWrapper = styled.div`
   align-items: center;
   justify-content: center;
   > div {
+    position: relative;
     box-shadow: 5px 5px 5px lightgray;
     background-color: white;
     border-radius: 100px;
@@ -107,6 +111,26 @@ const Wrapper = styled.div`
   position: relative;
   padding-bottom: 250px;
   background-color: #eff7ff;
+  overflow: hidden;
+`;
+
+const Pattern1 = styled.span`
+  position: absolute;
+  width: 500px;
+  left: -250px;
+  top: -100px;
+`;
+
+const Pattern2 = styled.span`
+  position: absolute;
+  right: 0px;
+  top: 200px;
+`;
+const Emphasis = styled.span`
+  position: absolute;
+  width: 30px;
+  right: -50px;
+  top: -70px;
 `;
 
 const Slider: NextPage = () => {
@@ -128,8 +152,19 @@ const Slider: NextPage = () => {
   ];
   return (
     <Wrapper>
+      <Pattern1>
+        <Image src={Pat1} />
+      </Pattern1>
+      <Pattern2>
+        <Image src={Pat2} />
+      </Pattern2>
       <TTSWrapper>
         <div onClick={onClick}>
+          <div>
+            <Emphasis>
+              <Image src={Emp} />
+            </Emphasis>
+          </div>
           <Image src={Speaker} alt={""} />
           <p>음성안내로 시작하기</p>
         </div>
