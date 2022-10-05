@@ -1,3 +1,3 @@
-const URL = `http://192.168.50.3:8080`;
+const URL = `http://118.40.3.28:8080`;
 
 export const GET_JOBS_URL = `${URL}/jobs`;
