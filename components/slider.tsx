@@ -124,7 +124,7 @@ const Slider: NextPage = () => {
     { text: "적용 복지", url: "/welfare" },
     { text: "일자리 추천", url: "/" },
     { text: "일자리 찾기", url: "/" },
-    { text: "통계 자료", url: "/" },
+    { text: "통계 자료", url: "/document" },
   ];
   return (
     <Wrapper>
