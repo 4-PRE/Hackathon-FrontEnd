@@ -67,6 +67,9 @@ const CenterWrapper = styled.div`
     justify-content: space-between;
     > div {
       margin-top: 20px;
+      p {
+        margin-top: 20px;
+      }
     }
   }
   #bottom {

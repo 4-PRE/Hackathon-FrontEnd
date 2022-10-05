@@ -25,7 +25,7 @@ const Question: NextPage = () => {
     ],
   ]);
 
-  let [result, setResult] = React.useState<string[]>([]);
+  const [result, setResult] = React.useState<string[]>([]);
 
   const getResult = () => {
     let temp = [];
@@ -77,10 +77,9 @@ const Question: NextPage = () => {
         })}
       </FormControl>
       <button onClick={getResult}>계산하기</button>
-
-      {result.map((data, idx) => {
-        return <div key={idx}>{data}</div>;
-      })}
+      {result.map((data, idx) => (
+        <div key={idx}>{data}</div>
+      ))}
     </>
   );
 };

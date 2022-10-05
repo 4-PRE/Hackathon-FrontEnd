@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Speaker from "../public/img/speaker.png";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const Container = styled.div`
   position: absolute;
@@ -12,7 +13,7 @@ const Container = styled.div`
   left: 0;
   right: 0;
   text-align: center;
-  width: 70%;
+  width: 50%;
   background-color: #61c9ef;
   z-index: 1;
   border-radius: 12px;
@@ -28,7 +29,13 @@ const MenuItem = styled.div`
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #333;
+  border: 2px solid lightgray;
+  font-weight: bolder;
+  font-size: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const MenuContainer = styled.div`
@@ -39,15 +46,22 @@ const MenuContainer = styled.div`
 
 const MenuWrapper = styled.div`
   display: flex;
+  width: 140px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 5px;
-  padding-bottom: 0px;
+  padding-bottom: 10px;
   padding-top: 10px;
   background-color: white;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
+  transition: 0.3s;
+  :hover {
+    background-color: #e6e2e2;
+    transition: 0.3s;
+  }
 `;
 
 const TTSWrapper = styled.div`
@@ -102,6 +116,13 @@ const Slider: NextPage = () => {
       "안녕하십니까. 노인복지서비스 PRE 입니다. 음성 안내를 듣고 음성 안내 버튼 하단의 항목 중 원하시는 것을 선택하세요. 자신에게 적용되는 복지를 알아보고 싶으면 1번, 자신을 위한 일자리를 추천받고 싶으면 2번, 그 외에 다른 일자리를 찾아보고 싶으면 3번, 노인 취업 관련 통계 자료를 열람하려면 4번을 눌러주세요.";
     window.speechSynthesis.speak(speechMsg);
   };
+  const router = useRouter();
+  const Arr = [
+    { text: "적용 복지", url: "/welfare" },
+    { text: "일자리 추천", url: "/" },
+    { text: "일자리 찾기", url: "/" },
+    { text: "통계 자료", url: "/" },
+  ];
   return (
     <Wrapper>
       <TTSWrapper>
@@ -113,14 +134,14 @@ const Slider: NextPage = () => {
       <Container>
         <MainText>무엇을 도와드릴까요?</MainText>
         <MenuContainer>
-          {new Array(5).fill(0).map((data, idx) => {
-            return (
-              <MenuWrapper key={idx}>
-                <MenuItem />
-                <h3>일자리 구직</h3>
-              </MenuWrapper>
-            );
-          })}
+          {Arr.map((data, idx) => (
+            <MenuWrapper key={idx} onClick={() => router.push(data.url)}>
+              <MenuItem>
+                <p>{idx + 1}</p>
+              </MenuItem>
+              <h3>{data.text}</h3>
+            </MenuWrapper>
+          ))}
         </MenuContainer>
       </Container>
     </Wrapper>
