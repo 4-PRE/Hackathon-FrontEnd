@@ -1,9 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 export const GlobalStyle = createGlobalStyle`
-    ${normalize}  
-    html {    
+    ${normalize}
+    *{
         box-sizing: border-box;
+    }  
+    html {    
         font-size: 20px;    
         min-width: 320px;  
         ::-webkit-scrollbar{
