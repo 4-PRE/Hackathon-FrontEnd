@@ -1,7 +1,13 @@
 import { DefaultTheme, ThemeConsumer } from "styled-components";
 
 export const theme: DefaultTheme = {
-  colors: { black: "#333333", white: "#fffeee", orange: "#eb7952" },
+  colors: {
+    deepPrimary: "#274FE8",
+    lightPrimary: "#2988FE",
+    primary: "##30ACDB",
+    black: "#333333",
+    white: "#fffeee",
+  },
 };
 
 export default theme;
