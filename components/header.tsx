@@ -17,11 +17,11 @@ const Header: NextPage = () => {
 export default Header;
 
 const Wrapper = styled.div`
-  border: 1px solid black;
-  width: 100%;
+  z-index: 10;
+  width: 100vw;
   height: 60px;
   background-color: gray;
-  position: fixed;
+  position: sticky;
   top: 0px;
   right: 0px;
   display: flex;
@@ -40,9 +40,8 @@ const Logo = styled.div`
 const TextsWrapper = styled.div`
   width: 400px;
   height: 100%;
-  position: absolute;
-  left: 60%;
   display: flex;
+  margin-right: 50px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
