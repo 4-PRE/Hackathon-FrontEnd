@@ -55,5 +55,10 @@ const TextsWrapper = styled.div`
     background-color: white;
     border-radius: 5px;
     padding: 10px;
+    transition: 0.3s;
+    :hover {
+      background-color: #e6e2e2;
+      transition: 0.3s;
+    }
   }
 `;

@@ -32,7 +32,12 @@ const Footer: NextPage = () => {
             </div>
             <p>Team. PRE</p>
           </div>
-          <div id="img">
+          <div
+            id="img"
+            onClick={() =>
+              (window.location.href = "https://github.com/SW-Assemble")
+            }
+          >
             <Image src={github} />
           </div>
         </div>
