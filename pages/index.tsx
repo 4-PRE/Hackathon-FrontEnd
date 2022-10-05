@@ -7,9 +7,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-    <S.Container>
-      <Slider />
-    </S.Container>
+      <S.Container>
+        <Slider />
+      </S.Container>
     </>
   );
 };

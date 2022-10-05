@@ -20,5 +20,3 @@ const Wrapper = styled.div`
   top: 0px;
   right: 0px;
 `;
-
-const Logo = 
