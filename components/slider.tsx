@@ -5,16 +5,16 @@ import Banner from "../public/img/download.png";
 import styled from "styled-components";
 
 const Container = styled.div`
-  position: relative;
+  position: absolute;
   margin-left: auto;
   margin-right: auto;
-  top: -30px;
+  bottom: 70px;
   left: 0;
   right: 0;
   text-align: center;
   width: 70%;
   background-color: gold;
-  z-index: 10;
+  z-index: 1;
   border-radius: 12px;
 `;
 
@@ -43,11 +43,29 @@ const MenuWrapper = styled.div`
   flex-direction: column;
 `;
 
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 500px;
+  > span {
+    display: flex !important;
+    height: 100% !important;
+  }
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  padding-bottom: 250px;
+`;
+
 const Slider: NextPage = () => {
   return (
-    <div>
-      <Image src={Banner} alt="1" />
-        <Container>
+    <Wrapper>
+      <ImageWrapper>
+        <Image src={Banner} />
+      </ImageWrapper>
+      <Container>
         <MainText>무엇을 도와드릴까요?</MainText>
         <MenuContainer>
           {new Array(5).fill(0).map((data, idx) => {
@@ -60,7 +78,7 @@ const Slider: NextPage = () => {
           })}
         </MenuContainer>
       </Container>
-    </div>
+    </Wrapper>
   );
 };
 
