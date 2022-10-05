@@ -3,7 +3,8 @@ import theme from "./theme";
 
 export const Container = styled.div`
   width: 100vw;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+  height: fit-content;
   color: ${({ theme }) => theme.colors.orange};
   background-color: ${({ theme }) => theme.colors.black};
 `;
