@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import React from "react";
 import Image from "next/image";
-import Banner from "../public/img/download.png";
+import Speaker from "../public/img/speaker.png";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -43,28 +43,54 @@ const MenuWrapper = styled.div`
   flex-direction: column;
 `;
 
-const ImageWrapper = styled.div`
+const TTSWrapper = styled.div`
   width: 100%;
   height: 500px;
-  > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > div {
+    background-color: white;
+    border-radius: 100px;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 800px;
+    height: 150px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 50px;
+    line-height: 20px;
+    > p {
+      margin-left: 50px;
+    }
+  }
+  > div span {
     display: flex !important;
-    height: 100% !important;
+    height: 100px !important;
+    width: 100px !important;
   }
 `;
 
 const Wrapper = styled.div`
+  margin-top: 60px;
   width: 100%;
   height: fit-content;
   position: relative;
   padding-bottom: 250px;
+  background-color: lightgray;
 `;
 
 const Slider: NextPage = () => {
   return (
     <Wrapper>
-      <ImageWrapper>
-        <Image src={Banner} />
-      </ImageWrapper>
+      <TTSWrapper>
+        <div>
+          <Image src={Speaker} />
+          <p>음성안내로 시작하기</p>
+        </div>
+      </TTSWrapper>
       <Container>
         <MainText>무엇을 도와드릴까요?</MainText>
         <MenuContainer>
