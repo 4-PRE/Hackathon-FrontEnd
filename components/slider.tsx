@@ -115,6 +115,9 @@ const Slider: NextPage = () => {
     speechMsg.text =
       "안녕하십니까. 노인복지서비스 PRE 입니다. 음성 안내를 듣고 음성 안내 버튼 하단의 항목 중 원하시는 것을 선택하세요. 자신에게 적용되는 복지를 알아보고 싶으면 1번, 자신을 위한 일자리를 추천받고 싶으면 2번, 그 외에 다른 일자리를 찾아보고 싶으면 3번, 노인 취업 관련 통계 자료를 열람하려면 4번을 눌러주세요.";
     window.speechSynthesis.speak(speechMsg);
+    alert(
+      "음성이 나오고 있습니다. 소리가 들리지 않는다면 설정을 조절해 주세요."
+    );
   };
   const router = useRouter();
   const Arr = [
