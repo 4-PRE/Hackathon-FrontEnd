@@ -37,7 +37,7 @@ const Information: NextPage = () => {
         <Block
           imageUrl={value.url}
           isImgSideRight={!!(index % 2)}
-          color={!(index % 2) ? "white" : "lightgray"}
+          color={!(index % 2) ? "#d8ebff" : "white"}
           title={value.title}
           sub={value.sub}
           key={index}

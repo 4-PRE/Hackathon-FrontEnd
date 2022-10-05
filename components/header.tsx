@@ -17,10 +17,11 @@ const Header: NextPage = () => {
 export default Header;
 
 const Wrapper = styled.div`
+  box-shadow: 0px 3px 5px 5px rgba(0, 0, 0, 0.3);
   z-index: 10;
   width: 100vw;
   height: 60px;
-  background-color: gray;
+  background-color: #00aaff;
   position: fixed;
   top: 0px;
   right: 0px;
@@ -46,6 +47,11 @@ const TextsWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   > p {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight:bold;
+    cursor:pointer;
+    background-color:white;
+    border-radius:5px;
+    padding:10px;
   }
 `;

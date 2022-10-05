@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Speaker from "../public/img/speaker.png";
 import styled from "styled-components";
@@ -13,7 +13,7 @@ const Container = styled.div`
   right: 0;
   text-align: center;
   width: 70%;
-  background-color: gold;
+  background-color: #30ACDB;
   z-index: 1;
   border-radius: 12px;
 `;
@@ -79,14 +79,19 @@ const Wrapper = styled.div`
   height: fit-content;
   position: relative;
   padding-bottom: 250px;
-  background-color: lightgray;
+  background-color: #eff7ff;
 `;
 
 const Slider: NextPage = () => {
+  const onClick = () => {
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.text = "가나다라";
+    window.speechSynthesis.speak(speechMsg);
+  };
   return (
     <Wrapper>
       <TTSWrapper>
-        <div>
+        <div onClick={onClick}>
           <Image src={Speaker} />
           <p>음성안내로 시작하기</p>
         </div>
