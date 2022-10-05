@@ -3,6 +3,8 @@ export const GlobalStyle = createGlobalStyle`
     *{
         box-sizing: border-box;
         font-family: 'HallymGothic-Regular';
+        padding:0px;
+        margin:0px;
     }  
     html {    
         font-size: 20px;    

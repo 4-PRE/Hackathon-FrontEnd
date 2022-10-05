@@ -1,16 +1,18 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import logo from "../public/img/logo.svg";
 
 const Header: NextPage = () => {
+  const router = useRouter();
   return (
     <Wrapper>
-      <Logo>
+      <Logo onClick={() => router.push("/")}>
         <Image src={logo} />
       </Logo>
       <TextsWrapper>
-        <p>복지 알아보기</p>
+        <p onClick={() => router.push("/welfare")}>복지 알아보기</p>
         <p>일자리 찾기</p>
         <p>도움말</p>
       </TextsWrapper>
@@ -38,6 +40,7 @@ const Wrapper = styled.div`
 const Logo = styled.div`
   width: 100px;
   margin-left: 50px;
+  cursor: pointer;
 `;
 
 const TextsWrapper = styled.div`

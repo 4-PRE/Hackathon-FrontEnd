@@ -106,6 +106,8 @@ const CenterWrapper = styled.div<{ isImgSideRight: boolean }>`
     height: 300px;
     word-break: keep-all;
     > #title {
+      margin-top: 30px;
+      margin-bottom: 40px;
       font-weight: bold;
       font-size: 34px;
     }
