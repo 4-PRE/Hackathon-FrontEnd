@@ -1,9 +1,8 @@
 import axios from "axios";
-import React from "react";
-import type { NextPage } from "next";
+import React, { useEffect } from "react";
 import { POST_WELFARE_URL } from "../../constant/url";
 
-const Find: NextPage = () => {
+const Find = () => {
   // const [result, setResult] = React.useState<string[]>([]);
   // const [result2, setResult2] = React.useState<string[]>([]);
 
@@ -23,6 +22,7 @@ const Find: NextPage = () => {
     ["기타 정부부처 소관", "OTHER", false],
   ];
 
+  const instance = axios.create({ baseURL: POST_WELFARE_URL });
   const submit = () => {
     let temp: string[] = [];
     let temp2: string[] = [];
@@ -39,10 +39,12 @@ const Find: NextPage = () => {
         temp2.push(form2[i][1]);
       }
     }
-
- 
-
-    const instance = axios.create()
+    const result = instance.get("", {
+      params: { page: 0 },
+      data: { targets: temp, wish_benefits: temp2 },
+    });
+    console.log(result);
+  };
 
   return (
     <>
