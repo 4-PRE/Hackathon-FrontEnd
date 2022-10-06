@@ -45,6 +45,7 @@ const Question: NextPage = () => {
       <Wrapper>
         <FormWrapper
           style={{
+            width: "40%",
             left: result ? "100px" : "calc(50% - 350px)",
           }}
         >
@@ -96,7 +97,10 @@ const Question: NextPage = () => {
         >
           결괏값이 없습니다.
         </h1>
-        <ResultWrapper style={{ opacity: result && result.length ? 1 : 0 }}>
+
+        <ResultWrapper
+          style={{ opacity: result && result.length ? 1 : 0, width: "40%" }}
+        >
           <h1>받을 수 있는 복지 결과</h1>
           {result?.map((value, index) => (
             <p key={index}>
@@ -134,7 +138,7 @@ const FormWrapper = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  box-sizing: border-box;
   padding: 40px;
   .blocks {
     margin-top: 20px;
@@ -144,6 +148,7 @@ const FormWrapper = styled.div`
     height: 60px;
     font-weight: bold;
     font-size: 30px;
+    margin-top: 10px;
     border-radius: 10px;
     border: 2px solid lightgray;
     transition: 0.3s;

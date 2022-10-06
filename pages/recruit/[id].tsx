@@ -5,8 +5,12 @@ import { GET_JOBS_URL } from "../../constant/url";
 import { NextRouter, useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
 import styled from "styled-components";
-import { Container } from "@mui/system";
-
+const Container = styled.div`
+  width: 95%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+`;
 const CompanyName = styled.h1``;
 const Address = styled.h1``;
 const MainText = styled.h2``;
@@ -15,9 +19,13 @@ const Left = styled.div`
   color: grey;
 `;
 const Line = styled.hr`
-  width: 95%;
+  margin: 40px auto;
+  height: 2px;
   background-color: #00aaff;
+  border: 0;
+  box-sizing: border-box;
 `;
+
 const Single: NextPage = () => {
   const router: NextRouter = useRouter();
   const route: ParsedUrlQuery = router.query; // 다이나믹 라우트 받는 부분
@@ -82,11 +90,14 @@ const Single: NextPage = () => {
         data && (
           <>
             <CompanyName>{data.companyName}</CompanyName>
+            <Line />
+
             <div style={{ display: "flex" }}>
               <Left>전화번호</Left>
               <div> {data.telephone}</div>
             </div>
             <Line />
+
             <MainText>모집 조건</MainText>
 
             <div style={{ display: "flex" }}>
@@ -99,6 +110,7 @@ const Single: NextPage = () => {
                 <div>{data.age}</div>
               </div>
             </div>
+
             <Line />
 
             <MainText>근무 조건</MainText>

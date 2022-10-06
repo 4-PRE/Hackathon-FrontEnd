@@ -18,27 +18,42 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Recommend: NextPage = () => {
-  React.useEffect(() => {
-    let config = {
-      method: "get",
-      url: `${GET_JOBS_URL}/2`,
-      headers: { "Content-Type": `application/json` },
-    };
+const Title = styled.h1`
+  font-size: 24px;
+`;
 
-    axios(config)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {});
-  }, []);
+const Address = styled.h4``;
+const Salary = styled.h4``;
+const Recruit = styled.h5``;
 
+interface searchData {
+  companyName: string;
+  endDate: string;
+  id: number;
+  region: string;
+  regionDetail: string;
+  requireNumber: number;
+  startDate: string;
+  telephone: string;
+}
+
+const Recommend: NextPage<{ data: searchData[] }> = ({ data }) => {
   return (
     <Container>
-      {new Array(5).fill(null).map((data, idx) => {
+      {data.map((data_, idx) => {
         return (
           <div key={idx}>
-            <Company>ddwqd</Company>
+            <Company>
+              <Title>{data_.companyName}</Title>
+              <Address>
+                주소 : {data_.region} {data_.regionDetail}
+              </Address>
+              <Recruit>
+                모집 기간 : {data_.startDate} ~ {data_.endDate}
+              </Recruit>
+              <Recruit>모집 인원 : {data_.requireNumber}</Recruit>
+              <Recruit>전화번호 : {data_.telephone}</Recruit>
+            </Company>
           </div>
         );
       })}

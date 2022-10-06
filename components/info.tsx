@@ -69,7 +69,7 @@ const Block = ({
     <Wrapper color={color}>
       <CenterWrapper isImgSideRight={isImgSideRight}>
         <div className="info-image" style={{ width: width + "px" }}>
-          <Image src={imageUrl} />
+          <Image src={imageUrl} alt={``} />
         </div>
         <div id="textWrapper">
           <p id="title">{title}</p>
