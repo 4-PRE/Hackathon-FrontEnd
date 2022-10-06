@@ -39,7 +39,7 @@ interface searchData {
   end_date: string;
   id: number;
   region: string;
-  regionDetail: string;
+  region_detail: string;
   require_number: number;
   start_date: string;
   telephone: string;

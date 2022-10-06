@@ -31,7 +31,7 @@ interface searchData {
   end_date: string;
   id: number;
   region: string;
-  regionDetail: string;
+  region_detail: string;
   require_number: number;
   start_date: string;
   telephone: string;
@@ -52,7 +52,7 @@ const Recommend: NextPage<{ data: searchData[] }> = ({ data }) => {
             <Company>
               <Title>{data_.company_name}</Title>
               <Address>
-                주소 : {data_.region} {data_.regionDetail}
+                주소 : {data_.region} {data_.region_detail}
               </Address>
               <Recruit>
                 모집 기간 : {data_.start_date} ~ {data_.end_date}
