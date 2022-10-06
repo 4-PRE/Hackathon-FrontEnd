@@ -91,7 +91,6 @@ const Single: NextPage = () => {
         data && (
           <>
             <Company_name>{data.company_name}</Company_name>
-            <Line />
 
             <div style={{ display: "flex" }}>
               <Left>전화번호</Left>
