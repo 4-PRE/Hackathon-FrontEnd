@@ -17,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.10.8",
     "axios": "^1.0.0",
+    "cookies-next": "^2.1.1",
     "http-proxy-middleware": "^2.0.6",
     "next": "12.2.5",
     "next-http-proxy-middleware": "^1.2.4",

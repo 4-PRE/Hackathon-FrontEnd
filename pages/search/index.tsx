@@ -76,7 +76,7 @@ const Search: NextPage = () => {
   React.useEffect(() => {
     let config = {
       method: "get",
-      url: `${POST_JOBS_SEARCH_URL}?region=${region}&page=${nowPageNumber}&size=5`,
+      url: `http://118.40.3.29:8081/jobs?region=전라북도&page=0&size=5&keyword=해물`,
       headers: { "Content-Type": `application/json` },
     };
 
