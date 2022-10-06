@@ -7,19 +7,29 @@ import axios from "axios";
 import { useRouter } from "next/router";
 const Company = styled.div`
   width: 300px;
-  height: 200px;
-  background-color: #ccc;
+  height: 230px;
+  background-color: white;
+  padding: 10px;
   margin: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
 `;
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  > #block {
+  }
 `;
 
 const Title = styled.h1`
   font-size: 24px;
+  border-bottom: 2px solid lightgray;
+  margin-bottom: 15px;
 `;
 
 const Address = styled.h4``;
@@ -44,6 +54,7 @@ const Recommend: NextPage<{ data: searchData[] }> = ({ data }) => {
       {data.map((data_, idx) => {
         return (
           <div
+            id="block"
             key={idx}
             onClick={() => {
               router.push(`/recruit/${data_.id}`);

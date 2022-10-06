@@ -13,7 +13,7 @@ const Header: NextPage = () => {
       </Logo>
       <TextsWrapper>
         <p onClick={() => router.push("/welfare")}>복지 알아보기</p>
-        <p>일자리 찾기</p>
+        <p onClick={() => router.push("/search")}>일자리 찾기</p>
       </TextsWrapper>
     </Wrapper>
   );
