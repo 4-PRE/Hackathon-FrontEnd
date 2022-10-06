@@ -14,7 +14,6 @@ const Header: NextPage = () => {
       <TextsWrapper>
         <p onClick={() => router.push("/welfare")}>복지 알아보기</p>
         <p>일자리 찾기</p>
-        <p>도움말</p>
       </TextsWrapper>
     </Wrapper>
   );
@@ -44,7 +43,7 @@ const Logo = styled.div`
 `;
 
 const TextsWrapper = styled.div`
-  width: 400px;
+  width: 300px;
   height: 100%;
   display: flex;
   margin-right: 50px;

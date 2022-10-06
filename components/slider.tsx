@@ -146,7 +146,7 @@ const Slider: NextPage = () => {
   const router = useRouter();
   const Arr = [
     { text: "적용 복지", url: "/welfare" },
-    { text: "일자리 추천", url: "/" },
+    { text: "일자리 추천", url: "/trend" },
     { text: "일자리 찾기", url: "/" },
     { text: "통계 자료", url: "/document" },
   ];
