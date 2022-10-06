@@ -45,6 +45,7 @@ const MenuContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 30px;
 `;
 
 const MenuWrapper = styled.div`
@@ -148,7 +149,7 @@ const Slider: NextPage = () => {
     { text: "적용 복지", url: "/welfare" },
     { text: "일자리 추천", url: "/trend" },
     { text: "일자리 찾기", url: "/search" },
-    { text: "통계 자료", url: "/document" },
+    { text: "음성 검색", url: "/speech" },
   ];
   return (
     <Wrapper>

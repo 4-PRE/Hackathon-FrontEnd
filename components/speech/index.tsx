@@ -13,7 +13,7 @@ function Example() {
   const { debounce } = useDebounce();
   const { listen, listening, stop } = useSpeechRecognition({
     onResult: (result: any) => {
-      setShowval(result);
+      setShowval("Q : " + result);
       debounce(() => setValue(result), 1000);
     },
   });
@@ -38,7 +38,7 @@ function Example() {
   }, [value]);
 
   return (
-    <div style={{ marginTop: "30px" }}>
+    <div style={{ marginTop: "120px" }}>
       <div
         style={{
           width: "400px",
@@ -77,9 +77,12 @@ function Example() {
           음성인식 활성화 중
         </div>
       )}
-      {result}
-      <div>이렇게 말씀해보세요!</div>
-      <p>기초생활수급자인데, 추가적인 경제 지원을 받고싶어요</p>
+
+      <div style={{ width: "400px", margin: "30px  auto" }}>
+        <div style={{ marginTop: "30px" }}>A : {result}</div>
+        <div style={{ marginTop: "30px" }}>이렇게 말씀해보세요!</div>
+        <p>기초생활수급자인데, 추가적인 경제 지원을 받고싶어요</p>
+      </div>
     </div>
   );
 }
