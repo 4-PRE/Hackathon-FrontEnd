@@ -203,7 +203,8 @@ const SearchWrapper = styled.div`
 
 const ResultWrapper = styled.div`
   width: 1000px;
-  height: 400px;
+  min-height: 400px;
+  height: fit-content;
   margin-top: 50px;
   display: flex;
   flex-direction: column;

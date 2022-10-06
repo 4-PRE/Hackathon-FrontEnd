@@ -253,7 +253,8 @@ const Wrapper = styled.div`
   position: relative;
   background-color: #d8ebff;
   width: 100vw;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+  height: fit-content;
   margin-top: 60px;
   display: flex;
   flex-direction: row;
