@@ -35,13 +35,13 @@ const RegionOption = styled.option`
 `;
 
 interface searchData {
-  companyName: string;
-  endDate: string;
+  company_name: string;
+  end_date: string;
   id: number;
   region: string;
   regionDetail: string;
-  requireNumber: number;
-  startDate: string;
+  require_number: number;
+  start_date: string;
   telephone: string;
 }
 
@@ -50,33 +50,12 @@ const Search: NextPage = () => {
   const [region, setRegion] = React.useState<string>("서울특별시");
   const [nowPageNumber, setNowPageNumber] = React.useState<number>(0);
   const [pageNumber, setPageNumber] = React.useState<number>(0);
-  const [result, setResult] = React.useState<searchData[]>([
-    {
-      id: 18,
-      companyName: "사단법인 한국문화산업협회(민간)",
-      startDate: "2022-09-28",
-      endDate: "2022-09-28",
-      requireNumber: 2,
-      region: "세종특별자치시",
-      regionDetail: "세종시",
-      telephone: "0448637305",
-    },
-    {
-      id: 19,
-      companyName: "사단법인 한국문화산업협회(민간)",
-      startDate: "2022-09-28",
-      endDate: "2022-09-28",
-      requireNumber: 2,
-      region: "세종특별자치시",
-      regionDetail: "세종시",
-      telephone: "0448637305",
-    },
-  ]);
+  const [result, setResult] = React.useState<searchData[]>([]);
 
   React.useEffect(() => {
     let config = {
       method: "get",
-      url: `http://118.40.3.29:8081/jobs?region=전라북도&page=0&size=5&keyword=해물`,
+      url: `http://118.40.3.28:8080/jobs?region=${region}&page=${nowPageNumber}&size=5&keyword=${keyWord}`,
       headers: { "Content-Type": `application/json` },
     };
 
@@ -87,11 +66,35 @@ const Search: NextPage = () => {
         console.log(response.data);
         setResult(response.data.result.list);
         setPageNumber(response.data.result.totalPage);
+        console.log(response.data.result.list);
+        console.log(result);
       })
-      .catch((err) => [console.log(err)]);
+      .catch((err) => {
+        console.log(err);
+      });
   }, [region]);
 
-  const searchWithKeyword = () => {};
+  const searchWithKeyword = () => {
+    let config = {
+      method: "get",
+      url: `http://118.40.3.28:8080/jobs?region=${region}&page=${nowPageNumber}&size=5&keyword=${keyWord}`,
+      headers: { "Content-Type": `application/json` },
+    };
+
+    axios(config)
+      .then((response) => {
+        setNowPageNumber(0);
+        console.log(config.url);
+        console.log(response.data);
+        setResult(response.data.result.list);
+        setPageNumber(response.data.result.totalPage);
+        console.log(response.data.result.list);
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <Container>
@@ -129,6 +132,7 @@ const Search: NextPage = () => {
           <RegionOption value="제주특별자치도">제주특별자치도</RegionOption>
         </RegionSelect>
         <SearchInput
+          placeholder="상세 내용을 검색해주세요 (입력 안해도 됨)"
           onChange={(e) => {
             setKeyWord(e.target.value);
           }}
@@ -136,13 +140,14 @@ const Search: NextPage = () => {
         <SearchButton
           onClick={() => {
             searchWithKeyword();
+            console.log("search");
           }}
         >
           <FaSearch size={`30`} />
         </SearchButton>
       </div>
 
-      {pageNumber !== 0 ? <div></div> : <Recommend data={result} />}
+      {result ? <Recommend data={result} /> : <div>업서</div>}
 
       {pageNumber !== 0 ? (
         [...Array(pageNumber)].map((data, idx) => (

@@ -11,7 +11,7 @@ const Container = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
 `;
-const CompanyName = styled.h1``;
+const Company_name = styled.h1``;
 const Address = styled.h1``;
 const MainText = styled.h2``;
 const Left = styled.div`
@@ -32,14 +32,14 @@ const Single: NextPage = () => {
   const id = route?.id;
 
   interface single {
-    companyName: string; // 회사 이름
+    company_name: string; // 회사 이름
     start_date: string; // 시작일자
     end_date: string; // 종료일자
     work_start_hour: number; // 업무 시작시간(24시간제)
     work_end_hour: number; // 업무 종료
     description: string;
     age: string;
-    requireNumber: string;
+    require_number: string;
     region: string;
     address: string; // 주소
     telephone: string; // 전화번호
@@ -49,14 +49,14 @@ const Single: NextPage = () => {
   const [data, setData] = React.useState<single>();
 
   // const data = {
-  //   companyName: "companyName", // 회사 이름
+  //   company_name: "company_name", // 회사 이름
   //   start_date: "start_date", // 시작일자
   //   end_date: "end_date", // 종료일자
   //   work_start_hour: "work_start_hour", // 업무 시작시간(24시간제)
   //   work_end_hour: "work_end_hour", // 업무 종료
   //   description: "description",
   //   age: "age",
-  //   requireNumber: "requireNumber",
+  //   require_number: "require_number",
   //   region: "region",
   //   address: "address", // 주소
   //   telephone: "telephone", // 전화번호
@@ -89,7 +89,7 @@ const Single: NextPage = () => {
       ) : (
         data && (
           <>
-            <CompanyName>{data.companyName}</CompanyName>
+            <Company_name>{data.company_name}</Company_name>
             <Line />
 
             <div style={{ display: "flex" }}>
@@ -106,7 +106,7 @@ const Single: NextPage = () => {
                 <div>나이</div>
               </Left>
               <div>
-                <div>{data.requireNumber}</div>
+                <div>{data.require_number}</div>
                 <div>{data.age}</div>
               </div>
             </div>
