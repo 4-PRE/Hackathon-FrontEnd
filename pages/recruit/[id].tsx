@@ -39,6 +39,7 @@ const Single: NextPage = () => {
     work_end_hour: number; // 업무 종료
     description: string;
     age: string;
+    arrange: string;
     require_number: string;
     region: string;
     address: string; // 주소
@@ -103,10 +104,16 @@ const Single: NextPage = () => {
             <div style={{ display: "flex" }}>
               <Left>
                 <div>모집 인원</div>
+                <div>직종</div>
                 <div>나이</div>
               </Left>
               <div>
                 <div>{data.require_number}</div>
+                {data.arrange ? (
+                  <div>{data.arrange}</div>
+                ) : (
+                  <div>직종이 없습니다</div>
+                )}
                 <div>{data.age}</div>
               </div>
             </div>
