@@ -1,15 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // @ts-ignore
 import { useSpeechRecognition } from "react-speech-kit";
 import axios from "axios";
+import { GET_SPEECH_URL } from "../../constant/url";
+import useDebounce from "../../hooks/useDebounce";
 
 function Example() {
   const [value, setValue] = useState("");
+  const [showval, setShowval] = useState("");
+  const [continuousCode, setContinuousCode] = useState("");
+  const [result, setResult] = useState("");
+  const { debounce } = useDebounce();
   const { listen, listening, stop } = useSpeechRecognition({
     onResult: (result: any) => {
-      setValue(result);
+      setShowval(result);
+      debounce(() => setValue(result), 1000);
     },
   });
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      url:
+        GET_SPEECH_URL + `?speech=${value}?continuous_code=${continuousCode}`,
+    };
+    axios(config)
+      .then((res) => {
+        console.log(res);
+        console.log(config.url);
+        setContinuousCode(res.data.continuous_code);
+        setResult(res.data.text);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [value]);
 
   return (
     <div style={{ marginTop: "30px" }}>
@@ -25,7 +50,7 @@ function Example() {
           fontSize: "28 px",
         }}
       >
-        {value}
+        {showval}
       </div>
       <button
         onMouseDown={listen}
@@ -51,6 +76,9 @@ function Example() {
           음성인식 활성화 중
         </div>
       )}
+      {result}
+      <div>이렇게 말씀해보세요!</div>
+      <p>기초생활수급자인데, 추가적인 경제 지원을 받고싶어요</p>
     </div>
   );
 }
