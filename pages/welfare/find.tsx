@@ -8,6 +8,7 @@ const Find = () => {
   const [data, setData] = React.useState([]);
   const [pageNumber, setPageNumber] = React.useState(0);
   const [pageCount, setPageCount] = React.useState(0);
+  const [userNumber, setUserNumber] = React.useState(-1);
 
   type form = [string, string, boolean];
 
@@ -45,7 +46,7 @@ const Find = () => {
         console.log(res);
         let config = {
           method: "get",
-          url: GET_WELFARE_URL + `/${randomNumber}?page=${pageNumber}`,
+          url: GET_WELFARE_URL + `/${userNumber}?page=${pageNumber}`,
           data: data,
           withCredentials: true,
         };
@@ -54,9 +55,8 @@ const Find = () => {
           .then((res) => {
             console.log(res.data);
             setData(res.data.list);
-            console.log(res.data.page_count)
             setPageCount(res.data.page_count);
-            console.log(pageNumber);
+            console.log(pageCount);
           })
           .catch((err) => {
             console.log(err);
@@ -70,17 +70,17 @@ const Find = () => {
     console.log(temp, temp2);
   };
 
-  const randomNumber = Math.round(Math.random() * 1000);
-
   React.useEffect(() => {
+    const randomNumber = Math.round(Math.random() * 1000);
     localStorage.setItem("key", randomNumber.toString());
     console.log(localStorage.getItem("key"));
+    setUserNumber(randomNumber);
   }, []);
 
   React.useEffect(() => {
     let config = {
       method: "get",
-      url: GET_WELFARE_URL + `/${randomNumber}?page=${pageNumber}`,
+      url: GET_WELFARE_URL + `/${userNumber}?page=${pageNumber}`,
       data: data,
       withCredentials: true,
     };
@@ -90,7 +90,7 @@ const Find = () => {
         console.log(res);
         let config = {
           method: "get",
-          url: GET_WELFARE_URL + `/${randomNumber}?page=${pageNumber}`,
+          url: GET_WELFARE_URL + `/${userNumber}?page=${pageNumber}`,
           data: data,
           withCredentials: true,
         };
@@ -100,8 +100,7 @@ const Find = () => {
             console.log(res.data);
             setData(res.data.list);
             setPageCount(res.data.page_count);
-            console.log("pageCount", pageCount);
-            console.log(pageNumber);
+            console.log(pageCount);
           })
           .catch((err) => {
             console.log(err);
@@ -162,7 +161,7 @@ const Find = () => {
       })}
       <button
         onClick={() => {
-          submit(randomNumber);
+          submit(userNumber);
         }}
       >
         계산하기
@@ -179,13 +178,16 @@ const Find = () => {
           );
         })}
       {new Array(pageCount).fill(0).map((_, idx) => {
-        <button
-          onClick={() => {
-            setPageNumber(idx);
-          }}
-        >
-          {idx + 1}
-        </button>;
+        return (
+          <button
+            key={idx}
+            onClick={() => {
+              setPageNumber(idx);
+            }}
+          >
+            {idx + 1}
+          </button>
+        );
       })}
     </>
   );
