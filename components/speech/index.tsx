@@ -22,7 +22,7 @@ function Example() {
     let config = {
       method: "get",
       url:
-        GET_SPEECH_URL + `?speech=${value}?continuous_code=${continuousCode}`,
+        GET_SPEECH_URL + `?speech=${value}&continuous_code=${continuousCode}`,
     };
     axios(config)
       .then((res) => {
@@ -34,6 +34,7 @@ function Example() {
       .catch((err) => {
         console.log(err);
       });
+    //eslint-disable-next-line
   }, [value]);
 
   return (
